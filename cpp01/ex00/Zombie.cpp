@@ -12,7 +12,7 @@ void Zombie::announce(void)
 	std::cout << get_name() << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::set_name(std::string input)
+void Zombie::setName(std::string input)
 {
 	name = input;
 }

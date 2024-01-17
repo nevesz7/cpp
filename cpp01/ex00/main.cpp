@@ -3,7 +3,7 @@
 int main(void)
 {
 	Zombie Blossom;
-	Blossom.set_name("Blossom");
+	Blossom.setName("Blossom");
 	Blossom.announce();
 
 	randomChump("Bubbles");
