@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-void print_field(std::string str) {
+void printField(std::string str) {
 	if (str.length() > 10) 
 	{
 		std::cout << str.substr(0, 9) << ".|";
@@ -15,7 +15,7 @@ void print_field(std::string str) {
 	}
 }
 
-bool str_is_digit(std::string str)
+bool strIsDigit(std::string str)
 {
 	for (size_t i = 0; i < str.length(); i++)
 	{

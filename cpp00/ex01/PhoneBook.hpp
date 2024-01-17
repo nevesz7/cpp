@@ -11,11 +11,11 @@ class PhoneBook {
 	PhoneBook();
 	~PhoneBook();
 	int		counter;
-	void	show_book();
-	void	show_contact(int index);
-	void	add_contact(Contact contact, int index);
+	void	showBook();
+	void	showContact(int index);
+	void	addContact(Contact contact, int index);
 };
 
-Contact		read_contact(int index);
+Contact		readContact(int index);
 
 #endif

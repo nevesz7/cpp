@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-int	get_index(int counter) {
+int	getIndex(int counter) {
 	std::string line;
 	int			nbr;
 
@@ -12,7 +12,7 @@ int	get_index(int counter) {
 			return 0;
 		if (line.length() != 1)
 			std::cout << "\tPlease insert only one character" << std::endl;
-		else if (str_is_digit(line))
+		else if (strIsDigit(line))
 		{
 			nbr = (int)line[0] - 48;
 			if (nbr >= counter || nbr > 7)
@@ -39,11 +39,11 @@ int main (void)
 		if (std::cin.eof() || str == "EXIT")
 			return 0;
 		if (str == "SEARCH") {
-			phoneBook.show_book();
+			phoneBook.showBook();
 			if (phoneBook.counter != 0)
 			{
-				int index = get_index(phoneBook.counter);
-				phoneBook.show_contact(index);
+				int index = getIndex(phoneBook.counter);
+				phoneBook.showContact(index);
 			}
 			else 
 			{
@@ -52,8 +52,8 @@ int main (void)
 		}
 		if (str == "ADD")
 		{
-			contact = read_contact(i % 8);
-			phoneBook.add_contact(contact, i % 8);
+			contact = readContact(i % 8);
+			phoneBook.addContact(contact, i % 8);
 			phoneBook.counter++;
 			i++;
 		}

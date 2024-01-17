@@ -1,14 +1,14 @@
 #include <iostream>
 #include "Contact.hpp"
 
-Contact::Contact(int input_index, std::string input_first_name, std::string input_last_name, std::string input_nickname, 
-		std::string input_phone_number, std::string input_darkest_secret) {
-	index = input_index;
-	first_name = input_first_name;
-	last_name = input_last_name;
-	nickname = input_nickname;
-	phone_number = input_phone_number;
-	darkest_secret = input_darkest_secret;
+Contact::Contact(int index, std::string first_name, std::string last_name, std::string nickname, 
+		std::string phone_number, std::string darkest_secret) {
+	this->index = index;
+	this->first_name = first_name;
+	this->last_name = last_name;
+	this->nickname = nickname;
+	this->phone_number = phone_number;
+	this->darkest_secret = darkest_secret;
 	return;
 }
 
@@ -18,19 +18,19 @@ Contact::Contact(void){
 Contact::~Contact(void){
 }
 
-void	Contact::print_contact_line(void) {
-	std::cout << "|       " << index << "|";
-	print_field(first_name);
-	print_field(last_name);
-	print_field(nickname);
+void	Contact::printContactLine(void) {
+	std::cout << "|       " << this->index << "|";
+	printField(first_name);
+	printField(last_name);
+	printField(nickname);
 	std::cout << std::endl;
 }
 
-void	Contact::print_contact_full(void) {
-	std::cout << "Index: " << index << "\n";
-	std::cout << "First Name: " << first_name << "\n";
-	std::cout << "Last Name: " << last_name << "\n";
-	std::cout << "Nickname: " << nickname << "\n";
-	std::cout << "Phone Number: " << phone_number << "\n";
-	std::cout << "Darkest Secret: " << darkest_secret << "\n";
+void	Contact::printContactFull(void) {
+	std::cout << "Index: " << this->index << "\n";
+	std::cout << "First Name: " << this->first_name << "\n";
+	std::cout << "Last Name: " << this->last_name << "\n";
+	std::cout << "Nickname: " << this->nickname << "\n";
+	std::cout << "Phone Number: " << this->phone_number << "\n";
+	std::cout << "Darkest Secret: " << this->darkest_secret << "\n";
 }

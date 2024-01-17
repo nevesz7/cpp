@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include "Contact.hpp"
 
-std::string	read_number(void)
+std::string	readNumber(void)
 {
 	std::string	phone_number;
 
@@ -11,7 +11,7 @@ std::string	read_number(void)
 		std::cout << "Insert Phone Number of Contact:" << std::endl;
 		std::getline(std::cin, phone_number);
 		if (phone_number.length() > 0) {
-			if (str_is_digit(phone_number))
+			if (strIsDigit(phone_number))
 				return phone_number;
 			std::cout << "Phone number can only contain digits" << std::endl;
 		} else {
@@ -22,7 +22,7 @@ std::string	read_number(void)
 	}
 }
 
-std::string	read_string(std::string message)
+std::string	readString(std::string message)
 {
 	std::string	str;
 
@@ -39,7 +39,7 @@ std::string	read_string(std::string message)
 	}
 }
 
-Contact read_contact(int index)
+Contact readContact(int index)
 {
 	std::string	first_name;
 	std::string	last_name;
@@ -47,19 +47,19 @@ Contact read_contact(int index)
 	std::string	phone_number;
 	std::string	darkest_secret;
 
-	first_name = read_string("Insert First Name of Contact:");
+	first_name = readString("Insert First Name of Contact:");
 	if (!first_name.length())
 		std::exit(EXIT_FAILURE);
-	last_name = read_string("Insert Last Name of Contact:");
+	last_name = readString("Insert Last Name of Contact:");
 	if (!last_name.length())
 		std::exit(EXIT_FAILURE);
-	nickname = read_string("Insert Nickname of Contact:");
+	nickname = readString("Insert Nickname of Contact:");
 	if (!nickname.length())
 		std::exit(EXIT_FAILURE);
-	phone_number = read_number();
+	phone_number = readNumber();
 	if (!phone_number.length())
 		std::exit(EXIT_FAILURE);
-	darkest_secret = read_string("Insert Darkest Secret of Contact:");
+	darkest_secret = readString("Insert Darkest Secret of Contact:");
 	if (!darkest_secret.length())
 		std::exit(EXIT_FAILURE);
 

@@ -1,24 +1,24 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
-	counter = 0;
+	this->counter = 0;
 }
 
 PhoneBook::~PhoneBook(void) {
 }
 
-void	PhoneBook::show_book(void) {
+void	PhoneBook::showBook(void) {
 	std::cout << "|   Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (int i = 0; i < counter && i < 8; i++)
 	{
-		contacts[i].print_contact_line();
+		contacts[i].printContactLine();
 	}
 }
 
-void	PhoneBook::add_contact(Contact contact, int index) {
+void	PhoneBook::addContact(Contact contact, int index) {
 	contacts[index] = contact;
 }
 
-void	PhoneBook::show_contact(int index) {
-	contacts[index].print_contact_full();
+void	PhoneBook::showContact(int index) {
+	contacts[index].printContactFull();
 }
