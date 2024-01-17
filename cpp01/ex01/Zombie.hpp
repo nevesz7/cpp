@@ -13,8 +13,8 @@ class Zombie {
 	Zombie(void);
 	~Zombie(void);
 	void		announce(void);
-	std::string	get_name(void);
-	void		set_name(std::string input);
+	std::string	getName(void);
+	void		setName(std::string name);
 };
 
 Zombie	*zombieHorde(int max);
