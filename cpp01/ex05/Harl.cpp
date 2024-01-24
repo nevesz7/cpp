@@ -1,16 +1,18 @@
 #include "Harl.hpp"
 
-void Harl::complain( std::string level ) {
+void Harl::complain( std::string level )
+{
 	for (unsigned int x = 0; x < level.length(); x++)
 		level[x] = char((toupper(level[x]))); //normalizing string to uppercase
 
 	void (Harl::*fct_ptr[4])(void) = {
 		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error,
-	}; //creates an array with 4 function pointers to Harl functions
+	};
+	//creates an array with 4 function pointers to Harl functions
 
 	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	int i = 0;
+	int i;
 	for (i = 0; i < 4 && levels[i] != level; i++); 
 	//iterates through the levels array checking if the input matches any of the levels
 	//if it doenst, return an error message

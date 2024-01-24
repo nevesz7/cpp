@@ -10,9 +10,7 @@ Weapon::Weapon(std::string type)
 }
 
 Weapon::~Weapon()
-{
-
-}
+{}
 
 const std::string& Weapon::getType()
 {
