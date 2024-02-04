@@ -1,7 +1,6 @@
-NAME		= winner
+NAME		= fixed
 
-SRC			= checks.cpp \
-			fileHandler.cpp \
+SRC			= Fixed.cpp \
 			main.cpp
 
 OBJ_DIR		= ./objects/
@@ -10,7 +9,7 @@ OBJS		= $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-HEADERS		= sed.hpp
+HEADERS		= Fixed.hpp
 
 all:		$(NAME)
 
