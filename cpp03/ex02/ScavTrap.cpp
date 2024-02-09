@@ -97,10 +97,18 @@ void	ScavTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
-	setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
+	if (amount > 0)
+	{
+		setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
 
-	std::cout << "[ScavTrap]" << this->name << " is repaired by " << amount 
+		std::cout << "[ScavTrap]" << this->name << " is repaired by " << amount 
 		<< " and has now " << this->hitPoints << " hit points." << std::endl;
+	}
+	else
+	{
+		std::cout << "[ScavTrap]" << this->name << " failed to be repaired and has " << 
+		this->hitPoints << " hit points." << std::endl;
+	}
 }
 
 void	ScavTrap::guardGate(void)

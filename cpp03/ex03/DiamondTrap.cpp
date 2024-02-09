@@ -91,10 +91,18 @@ void	DiamondTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
-	setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
+	if (amount > 0)
+	{
+		setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
 
-	std::cout << "[DiamondTrap]" << this->name << " is repaired by " << amount 
+		std::cout << "[DiamondTrap]" << this->name << " is repaired by " << amount 
 		<< " and has now " << this->hitPoints << " hit points." << std::endl;
+	}
+	else
+	{
+		std::cout << "[DiamondTrap]" << this->name << " failed to be repaired and has " << 
+		this->hitPoints << " hit points." << std::endl;
+	}
 }
 
 void DiamondTrap::whoAmI(void)

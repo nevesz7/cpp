@@ -54,7 +54,7 @@ void	ClapTrap::attack(const std::string& target)
 	}
 	if (this->energyPoints == 0)
 	{
-		std::cout << "ClapTrap " << this->name << " is exausthed and can't attack."<< std::endl;
+		std::cout << "[ClapTrap]" << this->name << " is exausthed and can't attack."<< std::endl;
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
@@ -92,8 +92,16 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
-	setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
+	if (amount > 0)
+	{
+		setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
 
-	std::cout << "[ClapTrap]" << this->name << " is repaired by " << amount 
+		std::cout << "[ClapTrap]" << this->name << " is repaired by " << amount 
 		<< " and has now " << this->hitPoints << " hit points." << std::endl;
+	}
+	else
+	{
+		std::cout << "[ClapTrap]" << this->name << " failed to be repaired and has " << 
+		this->hitPoints << " hit points." << std::endl;
+	}
 }
