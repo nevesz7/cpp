@@ -23,7 +23,7 @@ int main(void) {
 	std::cout << "----------------------------------------------" << std::endl;
 	std::cout << "Special function:" << std::endl;
 	robot2.guardGate();
-	robot3.highFiveGuys();
+	robot3.HighFivesGuys();
 	std::cout << "----------------------------------------------" << std::endl;
 	std::cout << "Destruction messages:" << std::endl;
 	return (0);

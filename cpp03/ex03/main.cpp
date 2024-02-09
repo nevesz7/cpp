@@ -15,11 +15,15 @@ int main(void) {
 	std::cout << "Healing:" << std::endl;
 	robot2.beRepaired(50);
 	std::cout << std::endl << robot1 << robot2 << robot3 << std::endl;
+	std::cout << robot1.ClapTrap::getName() << std::endl;
+	std::cout << robot1.ScavTrap::getName() << std::endl;
+	std::cout << robot1.FragTrap::getName() << std::endl;
+	std::cout << robot1.DiamondTrap::getName() << std::endl;
 	std::cout << "----------------------------------------------" << std::endl;
 	std::cout << "Special function:" << std::endl;
-	robot1.highFiveGuys();
+	robot1.HighFivesGuys();
 	robot1.whoAmI();
-	robot2.highFiveGuys();
+	robot2.HighFivesGuys();
 	robot2.whoAmI();
 	robot3.whoAmI();
 	std::cout << "----------------------------------------------" << std::endl;

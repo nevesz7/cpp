@@ -2,32 +2,30 @@
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-	std::cout << "[ScavTrap]Default constructor called" << std::endl;
+	std::cout << "[FragTrap]Default constructor called" << std::endl;
 	this->setName("Frag");
 	this->setHitPoints(100);
-	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
 	this->setMaxHitPoints(100);
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "[ScavTrap]Name constructor called" << std::endl;
+	std::cout << "[FragTrap]Name constructor called" << std::endl;
 	this->setHitPoints(100);
-	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
 	this->setMaxHitPoints(100);
 }
 
 FragTrap::FragTrap(FragTrap const& copy) : ClapTrap()
 {
-	std::cout << "[ScavTrap]Copy constructor called" << std::endl;
+	std::cout << "[FragTrap]Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &other)
 {
-	std::cout << "[ScavTrap]Copy assignment operator called" << std::endl;
+	std::cout << "[FragTrap]Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->setName(other.getName());
@@ -40,7 +38,7 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "[ScavTrap]Destructor called" << std::endl;
+	std::cout << "[FragTrap]Destructor called" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, FragTrap const &scav)
@@ -113,7 +111,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	}
 }
 
-void	FragTrap::highFiveGuys(void)
+void	FragTrap::HighFivesGuys(void)
 {
 	if (energyPoints <= 0)
 	{
