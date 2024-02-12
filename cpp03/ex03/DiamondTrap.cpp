@@ -19,7 +19,6 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), FragTrap(), ScavTrap()
 	this->setEnergyPoints(ScavTrap::getEnergyPoints());
 	this->setAttackDamage(FragTrap::getAttackDamage());
 	this->setMaxHitPoints(FragTrap::getMaxHitPoints());
-	ClapTrap::name = (this->getName() + "_clap_name");
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name)
@@ -30,7 +29,6 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), Sca
 	this->setEnergyPoints(ScavTrap::getEnergyPoints());
 	this->setAttackDamage(FragTrap::getAttackDamage());
 	this->setMaxHitPoints(FragTrap::getMaxHitPoints());
-	ClapTrap::name = (this->getName() + "_clap_name");
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const& copy) : ClapTrap(), FragTrap(), ScavTrap()
