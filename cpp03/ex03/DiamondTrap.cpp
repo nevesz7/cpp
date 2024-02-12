@@ -8,6 +8,7 @@ std::string	DiamondTrap::getName(void) const
 void	DiamondTrap::setName(std::string name)
 {
 	this->name = name;
+	ClapTrap::name = (name + "_clap_name");
 }
 
 DiamondTrap::DiamondTrap(void) : ClapTrap(), FragTrap(), ScavTrap()
