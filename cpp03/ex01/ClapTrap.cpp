@@ -13,8 +13,8 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
-	*this = copy;
 	std::cout << "[ClapTrap]Copy constructor called" << std::endl;
+	*this = copy;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other)
@@ -45,6 +45,8 @@ std::ostream &operator<<(std::ostream &out, ClapTrap const &clap)
 	return (out);
 }
 
+//if clapTrap has no hp or energy, attack fails
+//if attack is 0, it deals no damage
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->hitPoints == 0)
@@ -60,25 +62,28 @@ void	ClapTrap::attack(const std::string& target)
 	setEnergyPoints(this->energyPoints - 1);
 	if (this->attackDamage > 0)
 	{
-		std::cout << "[ClapTrap]" << this->name << " "
-			<< 
-		" attacks " << target
-			<< "and deals " << this->attackDamage << " points of damage." << std::endl;
+		std::cout << "[ClapTrap]" << this->name << " attacks " << target
+			<< " and deals " << this->attackDamage << " points of damage." << std::endl;
 	}
 	else 
 	{
-		std::cout << "[ClapTrap]" << this->name << "tries to attack "
+		std::cout << "[ClapTrap]" << this->name << " tries to attack "
 				<< target << " but deals no damage." << std::endl;
 	}
 }
 
+//if damage is greater than current hp, hp is set to 0
+//if damage is negative, 0 damage is taken
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	amount = ((int)amount < 0) ? 0 : amount;
 	setHitPoints((amount < this->hitPoints) ? (this->hitPoints - amount) : 0);
 	std::cout << "[ClapTrap]" << this->name << " took " << amount
 			<< " points of damage and now have " << this->hitPoints << " hit points." << std::endl;
 }
 
+//if clapTrap has no hp, no energy or amount <= 0, repair fails
+//if amount is greater than 0 it heals, if it overheals, it caps at maxHP
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->hitPoints == 0)
@@ -92,7 +97,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
-	if (amount > 0)
+	if ((int)amount > 0)
 	{
 		setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
 

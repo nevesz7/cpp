@@ -2,6 +2,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+# include <iomanip>
 
 class ClapTrap
 {
@@ -30,10 +31,10 @@ class ClapTrap
 		unsigned int	getMaxHitPoints(void) const;
 
 		void			setName(std::string name);
-		void			setHitPoints(unsigned int amount);
-		void			setEnergyPoints(unsigned int amount);
-		void			setAttackDamage(unsigned int amount);
-		void			setMaxHitPoints(unsigned int amount);
+		void			setHitPoints(int amount);
+		void			setEnergyPoints(int amount);
+		void			setAttackDamage(int amount);
+		void			setMaxHitPoints(int amount);
 };
 
 std::ostream &operator<<(std::ostream &out, ClapTrap const &clap);

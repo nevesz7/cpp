@@ -2,10 +2,11 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+# include <iomanip>
 
 class ClapTrap
 {
-	protected:
+	private:
 		std::string		name;
 		unsigned int	hitPoints;
 		unsigned int	energyPoints;
@@ -23,17 +24,17 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		virtual std::string		getName(void) const;
-		unsigned int			getHitPoints(void) const;
-		unsigned int			getEnergyPoints(void) const;
-		unsigned int			getAttackDamage(void) const;
-		unsigned int			getMaxHitPoints(void) const;
+		std::string		getName(void) const;
+		unsigned int	getHitPoints(void) const;
+		unsigned int	getEnergyPoints(void) const;
+		unsigned int	getAttackDamage(void) const;
+		unsigned int	getMaxHitPoints(void) const;
 
-		virtual void	setName(std::string name);
-		void			setHitPoints(unsigned int amount);
-		void			setEnergyPoints(unsigned int amount);
-		void			setAttackDamage(unsigned int amount);
-		void			setMaxHitPoints(unsigned int amount);
+		void			setName(std::string name);
+		void			setHitPoints(int amount);
+		void			setEnergyPoints(int amount);
+		void			setAttackDamage(int amount);
+		void			setMaxHitPoints(int amount);
 };
 
 std::ostream &operator<<(std::ostream &out, ClapTrap const &clap);
