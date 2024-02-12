@@ -1,30 +1,56 @@
 #include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+
+void	print_frag(FragTrap const& frag) {
+	std::cout << "[FragTrap]" << " | "
+			<< std::setw(11) << frag.getName() << " | "
+			<< std::setw(13) << frag.getEnergyPoints() << " | "
+			<< std::setw(10) << frag.getHitPoints() << " | "
+			<< std::setw(13) << frag.getAttackDamage() << std::endl;
+}
 
 int main(void) {
-	std::cout << "Initializing messages:" << std::endl;
-	ClapTrap robot1("Wall-E");
-	ScavTrap robot2;
-	FragTrap robot3;
-	FragTrap robot4("Eve");
+	std::cout << "Constructor messages: " << std::endl;
+	FragTrap	frag1;
+	frag1.setName("ONE");
+	FragTrap	frag2("TWO");
+	FragTrap	copy1(frag1);
+	FragTrap	copy2 = frag2;
+
+	std::cout << std::endl << "Robots after construction" << std::endl;
+	std::cout << "   TYPE    |     NAME    | ENERGY POINTS | HIT POINTS | ATTACK DAMAGE" << std::endl;
+	print_frag(frag1);
+	print_frag(frag2);
+	print_frag(copy1);
+	print_frag(copy2);
 	std::cout << std::endl;
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "Fights:" << std::endl;
-	robot3.attack(robot4.getName());
-	robot4.takeDamage(robot3.getAttackDamage());
-	robot1.setAttackDamage(10);
-	robot1.attack(robot2.getName());
-	robot2.takeDamage(robot1.getAttackDamage());
-	std::cout << std::endl << robot1 << robot2 << robot3 << robot4 << std::endl;
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "Healing:" << std::endl;
-	robot4.beRepaired(50);
-	std::cout << std::endl << robot1 << robot2 << robot3 << robot4 << std::endl;
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "Special function:" << std::endl;
-	robot2.guardGate();
-	robot3.HighFivesGuys();
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "Destruction messages:" << std::endl;
-	return (0);
+
+	copy1.setName("COPY1");
+	copy2.setName("COPY2");
+
+	frag1.attack(copy1.getName());
+	copy1.takeDamage(frag1.getAttackDamage());
+	frag1.attack(copy2.getName());
+	copy2.takeDamage(frag1.getAttackDamage());
+
+	frag2.attack(copy1.getName());
+	copy1.takeDamage(frag2.getAttackDamage());
+	frag2.setAttackDamage(100);
+	frag2.attack(copy2.getName());
+	copy2.takeDamage(frag2.getAttackDamage());
+
+	std::cout << std::endl << "Robots after attacks" << std::endl;
+	std::cout << "   TYPE    |     NAME    | ENERGY POINTS | HIT POINTS | ATTACK DAMAGE" << std::endl;
+	print_frag(frag1);
+	print_frag(frag2);
+	print_frag(copy1);
+	print_frag(copy2);
+	std::cout << std::endl;
+
+	copy1.setEnergyPoints(0);
+
+	frag1.highFivesGuys();
+	frag2.highFivesGuys();
+	copy1.highFivesGuys();
+	copy2.highFivesGuys();
+	std::cout << std::endl;
 }

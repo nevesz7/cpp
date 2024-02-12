@@ -83,22 +83,3 @@ int main(void) {
 	print_clap(copy2);
 	std::cout << std::endl;
 }
-
-
-// attack  		<0 0 >0 >totalhp
-// takedmg 		<0 0 >0 >totalhp
-// be repaired 	<0 0 >0 >totalhp
-// standard constructor
-// name constructor
-// copy constructor
-// copy assignment 
-// set	name;
-// get	name;
-// set	hitPoints;
-// get	hitPoints;
-// set	energyPoints;
-// get	energyPoints;
-// set	attackDamage;
-// get	attackDamage;
-// set	maxHitPoints;
-// get	maxHitPoints;

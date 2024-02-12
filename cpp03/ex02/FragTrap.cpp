@@ -52,6 +52,8 @@ std::ostream &operator<<(std::ostream &out, FragTrap const &scav)
 	return (out);
 }
 
+//if FragTrap has no hp or energy, attack fails
+//if attack is 0, it deals no damage
 void	FragTrap::attack(const std::string& target)
 {
 	if (this->hitPoints == 0)
@@ -61,31 +63,34 @@ void	FragTrap::attack(const std::string& target)
 	}
 	if (this->energyPoints == 0)
 	{
-		std::cout << "FragTrap " << this->name << " is exausthed and can't attack."<< std::endl;
+		std::cout << "[FragTrap]" << this->name << " is exausthed and can't attack."<< std::endl;
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
 	if (this->attackDamage > 0)
 	{
-		std::cout << "[FragTrap]" << this->name << " "
-			<< 
-		" attacks " << target
-			<< "and deals " << this->attackDamage << " points of damage." << std::endl;
+		std::cout << "[FragTrap]" << this->name << " attacks " << target
+			<< " and deals " << this->attackDamage << " points of damage." << std::endl;
 	}
 	else 
 	{
-		std::cout << "[FragTrap]" << this->name << "tries to attack "
+		std::cout << "[FragTrap]" << this->name << " tries to attack "
 				<< target << " but deals no damage." << std::endl;
 	}
 }
 
+//if damage is greater than current hp, hp is set to 0
+//if damage is negative, 0 damage is taken
 void	FragTrap::takeDamage(unsigned int amount)
 {
+	amount = ((int)amount < 0) ? 0 : amount;
 	setHitPoints((amount < this->hitPoints) ? (this->hitPoints - amount) : 0);
 	std::cout << "[FragTrap]" << this->name << " took " << amount
 			<< " points of damage and now have " << this->hitPoints << " hit points." << std::endl;
 }
 
+//if FragTrap has no hp, no energy or amount <= 0, repair fails
+//if amount is greater than 0 it heals, if it overheals, it caps at maxHP
 void	FragTrap::beRepaired(unsigned int amount)
 {
 	if (this->hitPoints == 0)
@@ -99,7 +104,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	setEnergyPoints(this->energyPoints - 1);
-	if (amount > 0)
+	if ((int)amount > 0)
 	{
 		setHitPoints((this->hitPoints + amount) < this->maxHitPoints ? (this->hitPoints + amount) : this->maxHitPoints);
 
@@ -113,7 +118,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	}
 }
 
-void	FragTrap::HighFivesGuys(void)
+void	FragTrap::highFivesGuys(void)
 {
 	if (energyPoints <= 0)
 	{
