@@ -16,11 +16,11 @@ WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy)
 	*this = copy;
 }
 
-WrongCat	&WrongCat::operator=(const WrongCat& copy)
+WrongCat	&WrongCat::operator=(const WrongCat& wrongCat)
 {
 	std::cout << "Copy WrongCat assignation called" << std::endl;
-	if (this != &copy)
-		this->type = copy.type;
+	if (this != &wrongCat)
+		this->type = wrongCat.type;
 	return (*this);
 }
 

@@ -10,3 +10,4 @@ std::string	WrongAnimal::getType(void) const
 {
 	return (this->type);
 }
+

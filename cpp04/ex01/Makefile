@@ -1,11 +1,10 @@
 NAME		= animal
 
 SRC			= Animal.cpp \
+			Brain.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			get.cpp	\
-			WrongAnimal.cpp \
-			WrongCat.cpp \
 			main.cpp
 
 OBJ_DIR		= ./objects/
@@ -15,10 +14,9 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 HEADERS		= Animal.hpp \
+			Brain.hpp \
 			Cat.hpp \
-			Dog.hpp \
-			WrongAnimal.hpp \
-			WrongCat.hpp
+			Dog.hpp
 
 all:		$(NAME)
 
