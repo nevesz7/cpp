@@ -10,7 +10,9 @@ int main ()
 
 	std::cout << std::endl;
 	std::cout << cat.getType() << " is thinking: \"" << cat.getIdea(42) << "\" but says: " << std::endl;
+	cat.makeSound();
 	std::cout << dog.getType() << " is thinking: \"" << dog.getIdea(42) << "\" but says: " << std::endl;
+	dog.makeSound();
 
 	std::cout << std::endl << "----------------- Default destructors:-----------------" << std::endl;
 }
