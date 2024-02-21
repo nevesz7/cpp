@@ -19,16 +19,16 @@ class Bureaucrat
 
 	public:
 		Bureaucrat();
-		Bureaucrat(const Bureaucrat& copy);
 		Bureaucrat(std::string const name, int const grade);
-		Bureaucrat& operator=(Bureaucrat const& bureaucrat);
+		Bureaucrat(const Bureaucrat &copy);
+		Bureaucrat &operator=(const Bureaucrat &bureaucrat);
 		~Bureaucrat();
 
 		std::string	getName() const;
 		int			getGrade() const;
 		void		setGrade(int const grade);
-		void		incrementGrade();
-		void		decrementGrade();
+		void		increaseGrade();
+		void		decreaseGrade();
 		void		signForm(AForm &form);
 		void		executeForm(AForm &form);
 
@@ -43,6 +43,6 @@ class Bureaucrat
 		};
 };
 
-std::ostream &operator<<(std::ostream &output, Bureaucrat const &bureaucrat);
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
 
 #endif

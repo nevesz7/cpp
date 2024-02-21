@@ -1,22 +1,23 @@
 #include "Form.hpp"
 
-Form::Form() : name("form x"), isSigned(false), requiredToSign(5), requiredToExecute(5)
+Form::Form() : name("form x"), isSigned(false), requiredToSign(MIN_GRADE), requiredToExecute(MIN_GRADE)
 {
 	std::cout << "Default Form constructor called" << std::endl;
-	return ;
 }
 
-Form::Form(std::string name, int requiredToSign, int requiredToExecute) : name(name), isSigned(false), requiredToSign(checkGrade(requiredToSign)), requiredToExecute(checkGrade(requiredToExecute))
+Form::Form(std::string name, int requiredToSign, int requiredToExecute) : name(name), isSigned(false), requiredToSign(requiredToSign), requiredToExecute(requiredToExecute)
 {
 	std::cout << "Parameter Form constructor called" << std::endl;
-	return ;
+	if (this->requiredToSign > MIN_GRADE || this->requiredToExecute > MIN_GRADE)
+        throw GradeTooLowException();
+    if (this->requiredToSign < MAX_GRADE || this->requiredToExecute < MAX_GRADE)
+        throw GradeTooHighException();
 }
 
-Form::Form(const Form& copy) : name(copy.getName()), isSigned(copy.getSigned()), requiredToSign(checkGrade(copy.getRequiredToSign())), requiredToExecute(checkGrade(copy.getRequiredToExecute()))
+Form::Form(const Form& copy) : name(copy.getName()), isSigned(copy.getSigned()), requiredToSign(copy.getRequiredToSign()), requiredToExecute(copy.getRequiredToExecute())
 {
 	std::cout << "Form copy constructor called" << std::endl;
 	*this = copy;
-	return ;
 }
 
 Form &Form::operator=(Form const &form)
@@ -26,8 +27,8 @@ Form &Form::operator=(Form const &form)
 	{
 		const_cast<std::string&>(this->name) = form.getName();
 		this->isSigned = form.getSigned();
-		const_cast<int&>(this->requiredToSign) = checkGrade(form.getRequiredToSign());
-		const_cast<int&>(this->requiredToExecute) = checkGrade(form.getRequiredToExecute());
+		const_cast<int&>(this->requiredToSign) = form.getRequiredToSign();
+		const_cast<int&>(this->requiredToExecute) = form.getRequiredToExecute();
 	}
 	return (*this);
 }
@@ -35,16 +36,15 @@ Form &Form::operator=(Form const &form)
 Form::~Form()
 {
 	std::cout << "Form destructor called" << std::endl;
-	return ;
 }
 
 void	Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > (int)requiredToSign)
 		throw Form::GradeTooLowException();
-	if (isSigned)
+	if (this->isSigned)
 		throw Form::AlreadySignedException();
-	isSigned = true;
+	this->isSigned = true;
 }
 
 bool	Form::getSigned(void) const
@@ -67,14 +67,6 @@ std::string Form::getName(void) const
 	return (this->name);
 }
 
-int	Form::checkGrade(int const grade) {
-	if (grade < MAX_GRADE)
-		throw Form::GradeTooHighException();
-	if (grade > MIN_GRADE)
-		throw Form::GradeTooLowException();
-	return grade;
-}
-
 const char* Form::GradeTooHighException::what() const throw() {
 	return ("Grade Too High Exception");
 }
@@ -90,7 +82,7 @@ const char* Form::AlreadySignedException::what() const throw() {
 std::ostream &operator<<(std::ostream &outputFile, Form const &form)
 {
 	outputFile	<< "Form: " << form.getName() << " is " << (form.getSigned() ? "signed" : "not signed")
-			<< ", grade needed to sign " << form.getRequiredToSign()
-			<< ", grade needed to execute " << form.getRequiredToExecute() << "." << std::endl;
+			<< ", grade needed to sign: " << form.getRequiredToSign()
+			<< ", grade needed to execute: " << form.getRequiredToExecute() << "." << std::endl;
 	return (outputFile);
 }

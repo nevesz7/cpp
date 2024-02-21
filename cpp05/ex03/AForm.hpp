@@ -46,7 +46,6 @@ class AForm
 		};
 		
 		class NoPermissionException: public std::exception {
-			public:
 				virtual const char	*what(void) const throw();
 		};
 };

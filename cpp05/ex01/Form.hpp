@@ -12,7 +12,6 @@ class Form
 		bool				isSigned;
 		int const			requiredToSign;
 		int const			requiredToExecute;
-		int					checkGrade(int const grade);
 
 	public:
 		Form();
@@ -28,15 +27,12 @@ class Form
 		void		beSigned(Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception {
-			public:
 				virtual const char* what(void) const throw();
 		};
 		class GradeTooLowException : public std::exception {
-			public:
 				virtual const char* what(void) const throw();
 		};
 		class AlreadySignedException: public std::exception {
-			public:
 				virtual const char	*what(void) const throw();
 		};
 };

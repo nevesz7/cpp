@@ -6,78 +6,44 @@
 
 int	main(void)
 {
-	std::cout << "\n------- Presidential Pardon Form -------" << std::endl;
-	Bureaucrat zorgon2("Prostetnic Vogon Kwaltz", 26);
-	PresidentialPardonForm formulary("Phineas");
-	try {
-		formulary.beSigned(zorgon2);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	try {
-		zorgon2.executeForm(formulary);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	zorgon2.setGrade(4);
-	formulary.beSigned(zorgon2);
-	try {
-		formulary.beSigned(zorgon2);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	try {
-		zorgon2.executeForm(formulary);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "\n\n-------- Shrubbery Request Form --------" << std::endl;
-	Bureaucrat zorgon3("Prostetnic Vogon Jeltz", 150);
-	
-	ShrubberyCreationForm formulary1("Knights who say NI");
-	try {
-		formulary1.beSigned(zorgon3);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	try {
-		zorgon3.executeForm(formulary1);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	zorgon3.setGrade(5);
-	try {
-		formulary1.beSigned(zorgon3);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	try {
-		zorgon3.executeForm(formulary1);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "\n\n--------- Robotomy Request Form --------" << std::endl;
-	Bureaucrat zorgon4("Zarniwoop", 46);
-	
-	RobotomyRequestForm formulary2("Roboto");
-	try {
-		formulary2.execute(zorgon4);
-	}	
-	catch (const std::exception& e)	{
-		std::cerr << e.what() << std::endl;
-	}
-	formulary2.beSigned(zorgon4);
-	zorgon4.incrementGrade();
-	zorgon4.executeForm(formulary2);
-	zorgon4.executeForm(formulary2);
-	std::cout << "\n\n---------- Default Destructors ---------" << std::endl;
-	return (0);
+	std::cout << "\t\t======== Creating Bureaucrats and Forms ========" << std::endl << std::endl;
+	Bureaucrat president("President", 150);
+	PresidentialPardonForm pardonFormulary("Criminal");
+	Bureaucrat robotomizer("Robotomizer", 150);
+	RobotomyRequestForm robotomyFormulary("Human");
+	Bureaucrat shrubbery("Shrubbery", 150);
+	ShrubberyCreationForm shruFormulary("trees");
+
+	std::cout << std::endl << "\t\t======== Presidential Pardon Form ========" << std::endl << std::endl;
+
+	president.executeForm(pardonFormulary);
+	president.signForm(pardonFormulary);
+	president.setGrade(1);
+	std::cout << "increasing grade to be able to sign form" << std::endl;
+	president.signForm(pardonFormulary);
+	president.signForm(pardonFormulary);
+	president.executeForm(pardonFormulary);
+
+	std::cout << std::endl << "\t\t======== Shrubbery Request Form ========" << std::endl << std::endl;
+
+	shrubbery.executeForm(shruFormulary);
+	shrubbery.signForm(shruFormulary);
+	shrubbery.setGrade(1);
+	std::cout << "increasing grade to be able to sign form" << std::endl;
+	shrubbery.signForm(shruFormulary);
+	shrubbery.signForm(shruFormulary);
+	shrubbery.executeForm(shruFormulary);
+
+	std::cout << std::endl << "\t\t======== Robotomy Request Form ========" << std::endl << std::endl;
+
+	robotomizer.executeForm(robotomyFormulary);
+	robotomizer.signForm(robotomyFormulary);
+	robotomizer.setGrade(1);
+	std::cout << "increasing grade to be able to sign form" << std::endl;
+	robotomizer.signForm(robotomyFormulary);
+	robotomizer.signForm(robotomyFormulary);
+	robotomizer.executeForm(robotomyFormulary);
+
+	std::cout << std::endl;
+
 }

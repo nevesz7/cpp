@@ -4,12 +4,12 @@
 # include <string>
 # include <iostream>
 # include <cstdlib>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -20,8 +20,8 @@ class Bureaucrat
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string const name, int const grade);
-		Bureaucrat(const Bureaucrat &copy);
-		Bureaucrat &operator=(const Bureaucrat &bureaucrat);
+		Bureaucrat(const Bureaucrat& copy);
+		Bureaucrat& operator=(Bureaucrat const& bureaucrat);
 		~Bureaucrat();
 
 		std::string	getName() const;
@@ -29,19 +29,20 @@ class Bureaucrat
 		void		setGrade(int const grade);
 		void		increaseGrade();
 		void		decreaseGrade();
-		void		signForm(Form &form);
+		void		signForm(AForm &form);
+		void		executeForm(AForm &form);
 
 		class GradeTooHighException : public std::exception
 		{
-			virtual const char* what(void) const throw();
+			const char* what(void) const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
-			virtual const char* what(void) const throw();
+			const char* what(void) const throw();
 		};
 };
 
-std::ostream &operator<<(std::ostream &output, Bureaucrat const &bureaucrat);
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
 
 #endif

@@ -20,7 +20,7 @@ class ShrubberyCreationForm : public AForm
 		std::string	getTarget() const;
 
 		class CreateFileException: public std::exception {
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
 };
 

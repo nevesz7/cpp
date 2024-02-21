@@ -3,86 +3,44 @@
 
 int	main(void)
 {
-	std::cout << "\n----------------------------------------" << std::endl;
-	try {
-		std::cout << "Try form with 1 signed grade and 2 exec grade..." << std::endl;
-		Form	F1("Form 1", 1, 2);
-		std::cout << F1 << std::endl;
-	} 
-	catch(std::exception & e) { std::cout << "Error: " << e.what() << std::endl; }
+	std::cout << "\t\t======= Creating forms =======" << std::endl << std::endl;
+	Form	f1("Form 1", 10, 10), f2("Form 2", 50, 50), f3("Form 3", 100, 100);
 
-	std::cout << "\n----------------------------------------" << std::endl;
-	try {
-		std::cout << "Try form with 0 signed grade and 2 exec grade..." << std::endl;
-		Form	F2("Form 2", 0, 2);
-		std::cout << F2 << std::endl;
-	} 
-	catch(std::exception & e) { std::cout << "Error: " << e.what() << std::endl; }
-	
-	std::cout << "\n----------------------------------------" << std::endl;
-	try {
-		std::cout << "Try form with 151 signed grade and 2 exec grade..." << std::endl;
-		Form	F3("Form 3", 151, 2);
-		std::cout << F3 << std::endl;
-	} 
-	catch(std::exception & e) { std::cout << "Error: " << e.what() << std::endl; }
-	
-	std::cout << "\n----------------------------------------" << std::endl;
-	try {
-		std::cout << "Try form with 1 signed grade and 0 exec grade..." << std::endl;
-		Form	F4("Form 4", 1, 0);
-		std::cout << F4 << std::endl;
-	} 
-	catch(std::exception & e) {	std::cout << "Error: " << e.what() << std::endl; }
-	
-	std::cout << "\n----------------------------------------" << std::endl;
-	try {
-		std::cout << "Try form with 1 signed grade and 151 exec grade..." << std::endl;
-		Form	F5("Form 5", 1, 151);
-		std::cout << F5 << std::endl;
-	} 
-	catch(std::exception & e) {	std::cout << "Error: " << e.what() << std::endl; }
+	try 
+	{	Form	f4("Form 4", 50, 0);}
+	catch (std::exception const &e) {
+        std::cerr << "Couldn't create form: " << e.what() << std::endl;
+    }
 
-	std::cout << "\n\n----------------------------------------" << std::endl;
-	try {
-		Bureaucrat	Bcrat1("Jeffords", 1);
-		std::cout << Bcrat1 << std::endl;
-		std::cout << "Try new form with 1 signed grade and 1 exec grade..." << std::endl;
-		Form	F6("Form 6", 1, 1);
-		std::cout << F6 << std::endl;
-		std::cout << "Try to sign" << std::endl;
-		Bcrat1.signForm(F6);
-		std::cout << "Update of " << F6 << std::endl;
-		std::cout << "Try to sign" << std::endl;
-		Bcrat1.signForm(F6);
-		std::cout << "Update of " << F6 << std::endl;
-	} 
-	catch(std::exception & e) {	std::cout << "Error: " << e.what() << std::endl; }
-	
-	std::cout << "\n----------------------------------------" << std::endl;
-	try {
-		Bureaucrat	Bcrat2("Holt", 3);
-		std::cout << Bcrat2 << std::endl;
-		std::cout << "Try new form with 1 signed grade and 1 exec grade..." << std::endl;
-		Form	F7("Form 7", 1, 1);
-		std::cout << F7 << std::endl;
-		std::cout << "Try to sign" << std::endl;
-		Bcrat2.signForm(F7);
-		std::cout << "Update of " << F7 << std::endl;
-		std::cout << Bcrat2.getName() << " -> Increment grade" << std::endl;
-		Bcrat2.increaseGrade();
-		std::cout << Bcrat2 << std::endl;
-		std::cout << "Try to sign" << std::endl;
-		Bcrat2.signForm(F7);
-		std::cout << "Update of " << F7 << std::endl;
-		Bcrat2.increaseGrade();
-		std::cout << Bcrat2.getName() << " -> Increment grade" << std::endl;
-		std::cout << Bcrat2 << std::endl;
-		Bcrat2.signForm(F7);
-		std::cout << "Update of " << F7 << std::endl;
-	} 
-	catch(std::exception & e) {	std::cout << "Error: " << e.what() << std::endl; }
+	try 
+	{	Form	f5("Form 5", 0, 50);}
+	catch (std::exception const &e) {
+        std::cerr << "Couldn't create form: " << e.what() << std::endl;
+    }
 
-	std::cout << std::endl;
-	return (0);
+	try 
+	{	Form	f6("Form 6", 500, 50);}
+	catch (std::exception const &e) {
+        std::cerr << "Couldn't create form: " << e.what() << std::endl;
+    }
+
+	try 
+	{	Form	f7("Form 7", 50, 500);}
+	catch (std::exception const &e) {
+        std::cerr << "Couldn't create form: " << e.what() << std::endl;
+    }
+
+	std::cout << std::endl << "\t\t======= Creating bureaucrats =======" << std::endl << std::endl;
+	Bureaucrat b1("Bureaucrat 1", 99), b2("Bureaucrat 2", 42), b3("Bureaucrat 3", 1);
+
+	std::cout << std::endl << "\t\t======= Trying to sign forms =======" << std::endl << std::endl;
+	b1.signForm(f1);
+	b2.signForm(f1);
+	b3.signForm(f1);
+	b1.signForm(f2);
+	b2.signForm(f2);
+	b3.signForm(f2);
+	b1.signForm(f3);
+	b2.signForm(f3);
+	b3.signForm(f3);
 }
