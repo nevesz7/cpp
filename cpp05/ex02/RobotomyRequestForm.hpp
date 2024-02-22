@@ -2,6 +2,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include <ctime>
+# include <unistd.h>
 
 class RobotomyRequestForm : public AForm
 {

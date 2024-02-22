@@ -7,11 +7,9 @@
 int	main(void)
 {
 	std::cout << "\t\t======== Creating Bureaucrats and Forms ========" << std::endl << std::endl;
-	Bureaucrat president("President", 150);
+	Bureaucrat president("President", 150), robotomizer("Robotomizer", 150), shrubbery("Shrubbery", 150);
 	PresidentialPardonForm pardonFormulary("Criminal");
-	Bureaucrat robotomizer("Robotomizer", 150);
 	RobotomyRequestForm robotomyFormulary("Human");
-	Bureaucrat shrubbery("Shrubbery", 150);
 	ShrubberyCreationForm shruFormulary("trees");
 
 	std::cout << std::endl << "\t\t======== Presidential Pardon Form ========" << std::endl << std::endl;
@@ -45,5 +43,4 @@ int	main(void)
 	robotomizer.executeForm(robotomyFormulary);
 
 	std::cout << std::endl;
-
 }

@@ -43,4 +43,6 @@ int	main(void)
 	b1.signForm(f3);
 	b2.signForm(f3);
 	b3.signForm(f3);
+
+	std::cout << std::endl;
 }

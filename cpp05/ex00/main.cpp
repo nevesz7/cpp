@@ -37,7 +37,7 @@ int	main(void)
 			std::cout << b1;
 		}
 		catch(std::exception & e) {
-			std::cout << std::endl << "Grade out of range : " << e.what() << std::endl;
+			std::cout << std::endl << "Error : " << e.what() << std::endl;
 		}
 	}
 	{
@@ -71,7 +71,7 @@ int	main(void)
 			std::cout << b2;
 		}
 		catch(std::exception & e) {
-		std::cout << std::endl << "Grade out of range : " << e.what() << std::endl;
+		std::cout << std::endl << "Error : " << e.what() << std::endl;
 		}
 	}
 	{
@@ -88,7 +88,7 @@ int	main(void)
 			}
 		}
 		catch(std::exception & e) {
-		std::cout << std::endl << "Grade out of range : " << e.what() << std::endl;
+		std::cout << std::endl << "Error : " << e.what() << std::endl;
 		}
 	}
 	return (0);
