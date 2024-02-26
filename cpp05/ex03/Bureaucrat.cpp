@@ -100,8 +100,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Grade Too Low Exception");
 }
 
-std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &bureaucrat)
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 {
-	outputFile	<< bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "." << std::endl;
-	return (outputFile);
+	out	<< bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "." << std::endl;
+	return (out);
 }
