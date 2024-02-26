@@ -44,10 +44,8 @@ void	printing(const T& elem)
 }
 
 template <typename T>
-void fibonacci(T& current, T& next) {
-    T temp = current;
-    current = next;
-    next += temp;
+void count(T& current, T& next) {
+    next += current;
 }
 
 #endif
