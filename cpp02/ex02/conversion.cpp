@@ -8,6 +8,14 @@ float	Fixed::toFloat( void ) const
 	return (answer);
 }
 
+double	Fixed::toDouble( void ) const
+{
+	double	answer;
+
+	answer = (double)rawBits / (double)(1 << fractBits);
+	return (answer);
+}
+
 int	Fixed::toInt( void ) const
 {
 	int	answer;
