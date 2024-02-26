@@ -17,7 +17,7 @@ Base *generate(void)
         case 2:
             return (new C);
     }
-    return (NULL);
+    return (new Base);
 }
 
 void identify(Base *p) {

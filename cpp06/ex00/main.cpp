@@ -13,9 +13,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	ScalarConverter converter;
-
 	int i = getPrecision(argv[1]);
 	std::cout << std::fixed << std::setprecision(i);
-	converter.convert(argv[1]);
+	ScalarConverter::convert(argv[1]);
 }
