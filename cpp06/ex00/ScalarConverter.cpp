@@ -1,6 +1,11 @@
 #include "ScalarConverter.hpp"
 #include "header.hpp"
 
+ScalarConverter::ScalarConverter()
+{
+	std::cout << "Default ScalarConverter constructor called" << std::endl;
+}
+
 std::ostream &operator<<(std::ostream &out, s_data data)
 {
 	out << "char: ";

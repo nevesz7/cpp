@@ -32,6 +32,8 @@ struct s_data {
 class ScalarConverter
 {
 	private:
+		ScalarConverter();
+
 		//check.cpp
 		static int	checkType(std::string str, s_data *data);
 		static bool	isChar(std::string str, s_data *data);
