@@ -59,7 +59,7 @@ int Span::shortestSpan() const {
 		throw Span::LessThanTwoElementsException();
 
 	int shortestSpan = INT_MAX;
-	for (size_t i = 0; i < elements.size(); ++i) {
+	for (size_t i = 1; i < elements.size(); i++) {
 		int currentSpan = elements[i] - elements[i - 1];
 		shortestSpan = (currentSpan < shortestSpan) ? currentSpan : shortestSpan;
 	}
