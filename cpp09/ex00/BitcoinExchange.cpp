@@ -44,9 +44,9 @@ void BitcoinExchange::readInputLine(std::string const &line) {
 	date = line.substr(0, pipe - 1);
 	value = line.substr(pipe + 2);
 	if (!isValidDate(date)) 
-		std::runtime_error("bad input => " + line);
+		throw std::runtime_error("bad input => " + date);
 	if (!isValidValue(value)) 
-		std::runtime_error("bad input => " + line);
+		throw std::runtime_error("bad input => " + value);
 	float number = std::atof(value.c_str());
 	if (number < 0)
 		throw std::runtime_error("not a positive number");
@@ -257,8 +257,7 @@ bool isValidDate(std::string const &date)
 			throw std::invalid_argument("Error: bad input => " + date);
 		return true;
 	} catch (const std::invalid_argument& e) {
-        std::cerr << e.what() << std::endl;
-		return false;
+        throw std::invalid_argument("Error: bad input => " + date);
     }
 
 }
